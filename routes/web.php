@@ -47,5 +47,5 @@ Route::get('/index-producto',[ProductController::class,'index']);
 
 Route::get('/create-producto',[ProductController::class,'create']);
 
-Route::get('/show-producto',[ProductController::class,'show']);
+Route::get('/show-producto/{product}',[ProductController::class,'show']);
 

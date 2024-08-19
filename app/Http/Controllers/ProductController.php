@@ -14,7 +14,9 @@ class ProductController extends Controller
     public function create(){
         return view('product.create-producto');
     }
-    public function show(){
-        return view('product.show-producto');
+    public function show($product){
+        $productDetail = Product::find($product);
+        return $productDetail;
+        return view('product.show-producto',compact('productDetail'));
     }
 }
