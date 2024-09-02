@@ -43,9 +43,16 @@ Route::get('/index-producto-add',function(){
     return $product;
 });
 
-Route::get('/index-producto',[ProductController::class,'index']);
+Route::get('/product',[ProductController::class,'index'])->name('producto.index');
 
-Route::get('/create-producto',[ProductController::class,'create']);
+Route::get('/product-create',[ProductController::class,'create'])->name('producto.create');
 
-Route::get('/show-producto/{product}',[ProductController::class,'show']);
+Route::post('/product',[ProductController::class,'store'])->name('producto.store');
 
+Route::get('/product-show/{product}',[ProductController::class,'show'])->name('producto.show');
+
+Route::delete('/product-delete/{product}', [ProductController::class, 'delete'])->name('producto.delete');
+
+Route::put('/product-update/{id}',[ProductController::class,'update'])->name('producto.put');
+
+Route::get('/product-update/{product}', [ProductController::class, 'updateView'])->name('producto.update');
