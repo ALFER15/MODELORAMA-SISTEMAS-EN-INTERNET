@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class ProductController extends Controller
 {
@@ -61,5 +63,11 @@ class ProductController extends Controller
 
         return redirect()->route('producto.show', $productoActualizado->id)
             ->with('edit', 'Se han modificado registros ');
+    }
+    public function getReport(){
+        $products = Product::all();
+        
+        $pdf = Pdf::loadView('product.report-product', compact('products'));
+        return $pdf->stream('reporte-productos.pdf');
     }
 }

@@ -1,5 +1,8 @@
 <x-app-layout>
-    @if(session('success'))
+    <div class='mb-2'>
+        <a href="{{ route('producto.report') }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Inventario </a>
+        </div>
+        @if(session('success'))
         <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
             <span class="font-medium">Alerta:</span> {{ session('success') }}
         </div>

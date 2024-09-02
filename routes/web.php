@@ -56,3 +56,5 @@ Route::delete('/product-delete/{product}', [ProductController::class, 'delete'])
 Route::put('/product-update/{id}',[ProductController::class,'update'])->name('producto.put');
 
 Route::get('/product-update/{product}', [ProductController::class, 'updateView'])->name('producto.update');
+
+Route::get('/products-report',[ProductController::class, 'getReport'])->name('producto.report');
